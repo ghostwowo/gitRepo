@@ -1,0 +1,19 @@
+    user用户 id name username password
+	
+	user_role_relation用户角色关联表 id user_id role_id
+	
+	Role：角色 id name
+	
+	role_menu_permission_relation角色菜单权限关联关系表 id r_id m_id p_id
+	
+	menu菜单  id name url level parent_id
+			  1  基础信息管理 # 1 -1
+			  2	用户信息管理 clic(1) 2 1
+			  3 工资管理	clic(2) 2 1
+			  
+	
+	permission权限表 id name value
+					 1  增加	1
+					 2	删除	2
+					 3	改	3	
+					 4	查  4 	

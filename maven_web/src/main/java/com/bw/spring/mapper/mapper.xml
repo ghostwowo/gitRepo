@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.bw.spring.mapper.Mapper" >
+ 	<select id="selectUsers" resultType="com.bw.spring.entity.User" >
+ 		select id,name,age,address from user
+ 		<if test="name!=null and name!=''" >
+ 		where name like "%${name}%"
+ 		</if>
+ 		limit #{start},#{end}
+ 	</select>
+ 	
+ 	<select id="selectCount" parameterType="string" resultType="int" >
+ 	
+ 		select count(id) from user 
+ 		<if test="name!=null and name!=''" >
+ 		where name like "%${name}%"
+ 		</if>
+ 	</select>
+ 	
+ 	<select id="selectUserById" parameterType="int" resultType="com.bw.spring.entity.User" >
+ 		select id,name,age,address from user where id = #{id}
+ 	</select>
+ 	
+ 	<select id="selectMenus" parameterType="string" resultType="map" >
+ 	
+ 	select 
+		m.* 	
+ 	from 
+ 		t_user u,
+ 		auth a,
+ 		menu m,
+ 		r_m_p rmp
+ 	where 
+ 		u.id = a.user_id
+ 	and
+ 		a.role_id = rmp.role_id
+ 	and
+ 		rmp.menu_id = m.id	
+ 	and u.name = #{name}	 	
+ 		
+ 	
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<select id="login" resultType="int" >
+ 		select count(id) from bw_user where username=#{name} and password=#{password}
+ 	</select>
+ 	
+ 	
+ 	<select id="selectMenusByNameAndPassword" resultType="com.bw.spring.entity.Menu" >
+ 		select 
+ 			m.id,
+ 			m.name,
+ 			m.url as urlPath,
+ 			m.p_id,
+ 			m.level
+ 			
+ 		from
+ 			bw_user u,
+ 			bw_menu m,
+ 			user_role_relation urr,
+ 			role_menu_permission_relation rmpr
+ 			
+ 			
+ 		where
+ 			u.id = urr.u_id
+ 		and
+ 			urr.r_id = rmpr.r_id
+ 		and
+ 			rmpr.m_id = m.id
+ 		and
+ 			u.username = #{name}
+ 		and
+ 			u.password = #{password}					
+ 	
+ 	
+ 	</select>
+ 	 
+ 	 
+ 	<select id="selectRMPByNameAndPwd" resultType="com.bw.spring.entity.RMPRelation" >
+ 	select
+ 		rmpr.m_id as mId,rmpr.pids as pids
+ 	from
+ 		bw_user u,
+ 		user_role_relation urr,
+ 		role_menu_permission_relation rmpr
+ 	where
+ 		u.id = urr.u_id
+ 	and
+ 		urr.r_id = rmpr.r_id
+ 	and
+ 		u.username = #{name}	
+ 	and
+ 		u.password = #{pwd}		
+ 	
+ 	</select> 
+ 	 
+ 	 
+ 	 <select id="getMenuKeyWordsById" parameterType="int" resultType="string" >
+ 	 
+ 	     select keywords from bw_menu where id = #{mid}
+ 	 </select>
+ 	 
+ 	 
+ 	 <select id="selectPMValueById" parameterType="int" resultType="string" >
+ 	 
+ 	 select value from bw_permission where id = #{id}
+ 	 </select>
+ 	
+ 	
+ 	<select id="selectAllMenu" resultType="com.bw.spring.entity.Menu" >
+ 			select * from bw_menu;
+ 	</select>
+ 	
+ 	<select id="selectAllRoles" resultType="map" >
+ 		select id,name from bw_role;
+ 	</select>
+ 	
+ 	<select id="selectAllPers" resultType="map" >
+ 		select id,name from bw_permission;
+ 	</select>
+ 	
+ 	
+ 	<select id="selectRealUser" resultType="com.bw.spring.entity.RealUser" >
+ 		select * from bw_user;
+ 	</select>
+ 	
+ 	
+ 	<select id="selectAllRoless" resultType="com.bw.spring.entity.Role" >
+ 		select * from bw_role ;
+ 	</select>
+ 	
+ 	<select id="selectOwnRoleId" resultType="int" parameterType="int" >
+ 	
+ 	select r_id from user_role_relation where u_id = #{userId}
+ 	</select>
+ 	
+ 	<select id="selectAllPermissions" resultType="com.bw.spring.entity.Permission" >
+ 		select * from bw_permission;
+ 	</select>
+ 	
+ 	
+ 	<select id="selectRMPByRoleId" parameterType="int" resultType="com.bw.spring.entity.RMPRelation" >
+ 	select m_id as mId,pids from role_menu_permission_relation
+ 	where r_id = #{roleId}
+ 	</select>
+ 	
+ 	<select id="selectMenuNameById" parameterType="int" resultType="string" >
+ 		select name from bw_menu where id = #{mid}
+ 	</select>
+ 	
+ 	<select id="selectPNameById" parameterType="int" resultType="string" >
+ 		select name from bw_permission where id = #{pid}
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ </mapper>

@@ -1,0 +1,636 @@
+@CHARSET "UTF-8";
+/*网页样式变量*/
+/*基调色彩*/
+/*宽高布局*/
+/*字体*/
+/*俄语*/
+/*html引用的布局样式*/
+.rela {
+  position: relative;
+}
+.abso {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.ofa {
+  overflow: auto;
+  zoom: 1;
+}
+.ofh {
+  overflow: hidden;
+}
+.fll {
+  float: left;
+}
+.flr {
+  float: right;
+}
+.hide {
+  display: none;
+}
+.fix {
+  position: fixed;
+}
+.rel {
+  position: relative;
+}
+.abs-r {
+  position: absolute;
+  right: 0;
+}
+.abs-b {
+  position: absolute;
+  bottom: 0;
+}
+.abs-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/*直引样式*/
+.tar {
+  text-align: right;
+}
+.tac {
+  text-align: center;
+}
+.ofhy {
+  overflow-y: hidden;
+}
+.ofhx {
+  overflow-x: hidden;
+}
+.mar {
+  margin: 0 auto;
+}
+.usn {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+.usnp {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+}
+.ust {
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+.db {
+  display: block;
+}
+.cp {
+  cursor: pointer;
+}
+.vat {
+  vertical-align: top;
+}
+.vac {
+  vertical-align: center;
+}
+.vab {
+  vertical-align: bottom;
+}
+/*效率简写*/
+/*元素基础样式*/
+.ul-h {
+  overflow: auto;
+  zoom: 1;
+}
+.ul-h li {
+  float: left;
+}
+.ul-h li a {
+  display: block;
+}
+.chosewrap {
+  margin-top: 10px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'Segoe UI', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', Arial, Simsun, sans-serif;
+  color: #666;
+  border: 3px dashed #b8b8b8;
+  width: 338px;
+  height: 150px;
+  border-radius: 5px;
+}
+.chosewrap:hover .chosebg {
+  display: none;
+}
+.chosewrap:hover .chosebtn01,
+.chosewrap:hover .chosebtn02 {
+  display: inline-block;
+  cursor: pointer;
+}
+.chosewrap:hover .chosebtn01:hover,
+.chosewrap:hover .chosebtn02:hover {
+  opacity: 0.7;
+}
+.chosewrap .chosebg {
+  display: inline-block;
+  height: 42px;
+  width: 42px;
+  background: url("../images/puductTrace/base_z.png") 0 -3065px no-repeat;
+}
+.chosewrap .chosebtn01 {
+  display: none;
+  border-radius: 5px;
+  border-bottom: 1px solid transparent;
+  padding: 10px;
+}
+.chosewrap .chosebtn01 i {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: 56px;
+  background: url("../images/puductTrace/media_list_z.png") 0 -66px no-repeat;
+}
+.chosewrap .chosebtn02 {
+  display: none;
+  border-radius: 5px;
+  border-bottom: 1px solid transparent;
+  padding: 10px;
+}
+.chosewrap .chosebtn02 i {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  height: 56px;
+  background: url("../images/puductTrace/media_list_z.png") 0 -198px no-repeat;
+}
+
+.appwrap {
+  font-family: 'Segoe UI', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', Arial, Simsun, sans-serif;
+  margin-top: 10px;
+}
+.appwrap .viewbox-b {
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.appwrap .viewbox-b .item {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+.appwrap .viewbox-b .childitem {
+  position: relative;
+  padding: 0px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  height: 48px; 
+  width: 250px;
+  margin-left:35px;
+  margin-top:-10px;
+  
+  overflow: hidden;
+}
+.appwrap .viewbox-b .item h4 {
+  float: left;
+  margin-top: 5px;
+  margin-bottom: 0;
+  width: 200px;
+  font-size: 14px;
+  color: #333;
+  font-weight: normal;
+}
+
+.appwrap .viewbox-b .item .description {
+	float: left;
+	margin-left:-200px;
+	margin-top: 50px;
+	margin-bottom: 0;
+	width: 180px;
+	font-size: 14px;
+	color: #333;
+	font-weight: normal;
+}
+
+.appwrap .viewbox-b .item .child-description {
+	position: absolute;
+	margin-left:15px;
+	margin-top: 45px;
+	margin-bottom: 0;
+	width: 165px;
+	font-size: 14px;
+	color: #333;
+	font-weight: normal;
+}
+
+.appwrap .viewbox-b .item h6 {
+  float: left;
+  margin-left:15px;
+/*  margin-top: 5px;*/
+  margin-top: 30px;
+  margin-bottom: 0;
+  width: 200px;
+  font-size: 12px;
+  color: #333;
+  font-weight: normal;
+}
+
+.appwrap .viewbox-b .item .pic {
+  background-color: #eee;
+  float: right;
+  line-height: 78px;
+  height: 78px;
+  width: 78px;
+}
+
+.appwrap .viewbox-b .item .childPic {
+    background-color: #eee;
+    float: right;
+    line-height: 78px;
+    height:78px;
+  	width: 78px;
+}
+
+.appwrap .viewbox-b .item .pic .pic-textbg {
+  color: #aaa;
+  text-align: center;
+  position: absolute;
+  width: 78px;
+  margin-top:30px;
+}
+
+.appwrap .viewbox-b .item .childPic .childPic-textbg {
+ 	color: #aaa;
+    margin-top: 30px;
+    position: absolute;
+    text-align: center;
+    width: 78px;
+}
+
+.appwrap .viewbox-b .item .pic img {
+  width: 78px;
+  height: 78px;
+}
+
+.appwrap .viewbox-b .item .childPic img {
+  width: 78px;
+  height: 78px;
+}
+.appwrap .viewbox-b .item:hover .edit-mask {
+  display: block;
+}
+.appwrap .viewbox-b .item .edit-mask {
+  display: none;
+  position: absolute;
+  background-color: rgba(240, 240, 240, 0.7);
+  z-index: 1;
+  text-align: center;
+  line-height: 75px;
+  margin-left: -10px;
+  margin-top: -10px;
+  height: 100%;
+  width: 100%;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-edit {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -2612px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+  overflow: hidden;
+  color: transparent;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-edit-child {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -2612px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+  overflow: hidden;
+  color: transparent;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-edit:hover {
+  opacity: 1;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-remove {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -2220px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  font-size: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-remove-all {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -2220px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+  overflow: hidden;
+  font-size: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .icon-close {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -1540px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin:0px auto;
+  overflow: hidden;
+  font-size: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.appwrap .viewbox-b .item .edit-mask .icon-show {
+  display: inline-block;
+  background: url("../images/puductTrace/base_z.png") 0 -2080px no-repeat;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 40px;
+  overflow: hidden;
+  font-size: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .item .edit-mask .icon-remove:hover {
+  opacity: 1;
+}
+.appwrap .viewbox-b .item-post {
+  height: 160px;
+  width: 290px;
+}
+.appwrap .viewbox-b .item-post .post-titlebg {
+  position: absolute;
+  height: 160px;
+  width: 290px;
+}
+.appwrap .viewbox-b .item-post .post-titlebg .title {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  min-height: 21px;
+  color: #fff;
+  padding: 3px 0;
+  text-indent: 3px;
+}
+.appwrap .viewbox-b .item-post .edit-mask {
+  width: 290px;
+  height: 160px;
+  line-height: 160px;
+  margin-left: 0;
+  margin-top: 0;
+}
+.appwrap .viewbox-b .item-post .post-textbg {
+  position: absolute;
+  height: 160px;
+  width: 290px;
+  text-align: center;
+  line-height: 160px;
+  color: #aaa;
+  font-size: 25px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+.appwrap .viewbox-b .item-post .pic {
+  height: 160px;
+  width: 290px;
+  background-color: #eee;
+}
+.appwrap .viewbox-b .item-post .pic img {
+  width: 290px;
+  height: 160px;
+  border: none;
+}
+.appwrap .viewbox-b .btn-additem {
+  height: 78px;
+  border: 3px dotted #a8a8a8;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.appwrap .viewbox-b .btn-additem:hover {
+  background-color: #f4f4f4;
+}
+.appwrap .viewbox-b .btn-additem:hover span {
+  opacity: 1;
+}
+.appwrap .viewbox-b .btn-additem span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  height: 24px;
+  width: 24px;
+  font-size: 0;
+  color: transparent;
+  background: url("../images/puductTrace/base_z.png") 0 -3031px no-repeat;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .btn-additem-child {
+  height: 78px;
+  border: 3px dotted #a8a8a8;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.appwrap .viewbox-b .btn-additem-child:hover {
+  background-color: #f4f4f4;
+}
+.appwrap .viewbox-b .btn-additem-child:hover span {
+  opacity: 1;
+}
+.appwrap .viewbox-b .btn-additem-child span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  height: 24px;
+  width: 24px;
+  font-size: 0;
+  color: transparent;
+  background: url("../images/puductTrace/base_z.png") 0 -3031px no-repeat;
+  opacity: 0.8;
+}
+.appwrap .viewbox-b .btn-additem-close {
+  height: 98%;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  width:20px; 
+  float:left; 
+  margin:2px 2px;
+  border:3px dotted #a8a8a8; 
+  position:absolute;
+}
+.appwrap .viewbox-b .btn-additem-close:hover {
+  background-color: #f4f4f4;
+}
+.appwrap .viewbox-b .btn-additem-close:hover span {
+  opacity: 1;
+}
+.appwrap .viewbox-b .btn-additem-close span {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  height: 24px;
+  width: 24px;
+  font-size: 0;
+  color: transparent;
+  background: url("../images/puductTrace/base_z.png") 0 -1533px no-repeat;
+  opacity: 0.8;
+}
+.appwrap .viewbox-a {
+  float: left;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 15px;
+  padding-top: 0;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 400px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #555;
+  line-height: 30px;
+  position: relative;
+}
+.appwrap .viewbox-a .arow-left {
+  position: absolute;
+  font-size: 40px;
+  left: -20px;
+  top: 30px;
+  color: #f8f8f8;
+  text-shadow: -1px 0 1px #bbbbbb;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+}
+.appwrap .viewbox-a .inputstyle {
+  width: 100%;
+  width: calc(96%);
+  font-family: 'Segoe UI', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', Arial, Simsun, sans-serif;
+  color: #555;
+  margin: 0 0 10px 0;
+  display: block;
+  padding: 5px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #c3c3c3;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  min-height: 20px;
+  left: 0;
+  right: 0;
+}
+.appwrap .viewbox-a .title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.appwrap .viewbox-a .title:first-child {
+  margin-top: 0;
+}
+.appwrap .viewbox-a .title .subright {
+  color: #999;
+  float: right;
+}
+.appwrap .viewbox-a .showitembtn span {
+  color: #58c;
+  cursor: pointer;
+}
+.appwrap .viewbox-a .subtext {
+  color: #999;
+}
+.appwrap .viewbox-a input {
+  outline: none;
+}
+.appwrap .viewbox-a input:active {
+  color: #58c;
+}
+.appwrap .viewbox-a textarea {
+  width: 100%;
+  width: calc(96%);
+  font-family: 'Segoe UI', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', Arial, Simsun, sans-serif;
+  color: #555;
+  margin: 0;
+  display: block;
+  padding: 5px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #c3c3c3;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  min-height: 20px;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  max-width: calc(96%);
+}

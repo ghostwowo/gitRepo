@@ -1,0 +1,31 @@
+@charset "utf-8";      
+.pagination a ,.pagination span{
+    text-decoration: none;
+	border: none;
+	color: #7e7e7e;
+	font-size: 14px;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 0.1em 0.4em;
+    margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.ellipse_text,span{
+	color: #7e7e7e;
+}
+
+.pagination .current,.pagination span {
+    background: none;
+    color: #7e7e7e;
+	border: none;
+}
+
+.pagination .current.prev, .pagination .current.next,.pagination span{
+	color:#7e7e7e;
+	/*border-color:#999;*/
+	background:none;
+}
+

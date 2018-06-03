@@ -1,0 +1,649 @@
+BODY {
+	BACKGROUND-POSITION: 50% top;
+	FONT-SIZE: 12px;
+	BACKGROUND-IMAGE: url(../images/bg.jpg);
+	COLOR: #455059;
+	BACKGROUND-REPEAT: repeat-x;
+	BACKGROUND-COLOR: #3FA1DF;
+	TEXT-ALIGN: center
+}
+
+#button{
+	width: 42px;
+	height: 22px;
+}
+
+.box2{
+	BORDER: 1px solid #7F9DB9;
+	background-color: white;
+	width: 77px;
+	height: 18px;
+}
+
+.bg2 {
+	BACKGROUND-IMAGE: url(../images/bg2.jpg);
+	margin: 0px;
+	padding: 0px
+}
+
+TD {
+	FONT-SIZE: 12px;
+	COLOR: #002444
+}
+
+{
+PADDING-RIGHT
+:
+ 
+0
+px
+;
+ 
+PADDING-LEFT
+:
+ 
+0
+px
+;
+ 
+PADDING-BOTTOM
+:
+ 
+0
+px
+;
+ 
+MARGIN
+:
+ 
+0
+px
+;
+ 
+PADDING-TOP
+:
+ 
+0
+px
+
+
+}
+IMG {
+	
+}
+
+UL {
+	LIST-STYLE-TYPE: none
+}
+
+/**LI {
+	BACKGROUND-POSITION: center 50%; FONT-SIZE: 14px; BACKGROUND-IMAGE: url(../images/libga.gif); COLOR: #000000; LINE-HEIGHT: 35px; BACKGROUND-REPEAT: no-repeat; LIST-STYLE-TYPE: none; TEXT-ALIGN: center
+}
+.li2 {
+	BACKGROUND-POSITION: center 50%; FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND-IMAGE: url(../images/libgb.gif); COLOR: #ffffff; LINE-HEIGHT: 35px; BACKGROUND-REPEAT: no-repeat; LIST-STYLE-TYPE: none; TEXT-ALIGN: center
+}*/
+/*LI {
+	BACKGROUND-POSITION: center 50%;
+	FONT-SIZE: 14px;
+	BACKGROUND-IMAGE: url(../images/libga.gif);
+	COLOR: #000000;
+	LINE-HEIGHT: 35px;
+	BACKGROUND-REPEAT: no-repeat;
+	LIST-STYLE-TYPE: none;
+	TEXT-ALIGN: center
+}*/
+
+/*.li2 {
+	BACKGROUND-POSITION: center 50%;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	BACKGROUND-IMAGE: url(../images/libgb.gif);
+	COLOR: #ffffff;
+	LINE-HEIGHT: 35px;
+	BACKGROUND-REPEAT: no-repeat;
+	LIST-STYLE-TYPE: none;
+	TEXT-ALIGN: center
+}*/
+
+/*A.li:link {
+	COLOR: #000000
+}
+
+A.li:visited {
+	COLOR: #000000
+}
+
+A.li:hover {
+	COLOR: #000000
+}*/
+
+.hui14 {
+	FONT-SIZE: 14px;
+	COLOR: #2c2c2c
+}
+
+.hei14 {
+	FONT-SIZE: 14px;
+	COLOR: #000000
+}
+
+.kuang {
+	FONT-SIZE: 14px;
+	WIDTH: 190px;
+	COLOR: #2c2c2c;
+	TEXT-INDENT: 5px;
+	LINE-HEIGHT: 27px;
+	HEIGHT: 30px
+}
+
+.kuang2 {
+	FONT-SIZE: 14px;
+	WIDTH: 90px;
+	COLOR: #2c2c2c;
+	TEXT-INDENT: 5px;
+	LINE-HEIGHT: 27px;
+	HEIGHT: 30px
+}
+
+.kuang3 {
+	FONT-SIZE: 12px;
+	WIDTH: 75px;
+	COLOR: #2c2c2c;
+	TEXT-INDENT: 2px;
+	LINE-HEIGHT: 20px;
+	HEIGHT: 20px
+}
+
+.login {
+	MARGIN-TOP: 35px
+}
+
+.leftbg {
+	BACKGROUND-IMAGE: url(../images/leftbg.jpg);
+	BACKGROUND-REPEAT: repeat-y
+}
+
+.rightbg {
+	BACKGROUND-IMAGE: url(../images/rightbg.jpg);
+	BACKGROUND-REPEAT: repeat-y
+}
+
+.topbg {
+	PADDING-RIGHT: 5px;
+	FONT-SIZE: 12px;
+	BACKGROUND-IMAGE: url(../images/topbg.gif);
+	VERTICAL-ALIGN: top;
+	COLOR: #ffffff;
+	PADDING-TOP: 10px;
+	BACKGROUND-REPEAT: no-repeat;
+	TEXT-ALIGN: right;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*.libg {
+	FONT-SIZE: 12px;
+	BACKGROUND-IMAGE: url(../images/libg.jpg);
+	COLOR: #ffffff;
+	BACKGROUND-REPEAT: repeat-x;
+	TEXT-ALIGN: center
+}
+
+.libg A:link {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.libg A:active {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.libg A:visited {
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.libg A:hover {
+	COLOR: #e3eff3;
+	TEXT-DECORATION: none
+}*/
+
+.heitxt {
+	COLOR: #000000
+}
+
+.lanbg {
+	VERTICAL-ALIGN: top;
+	PADDING-TOP: 10px;
+	BACKGROUND-COLOR: #e4eff3
+}
+
+.jgbg {
+	BACKGROUND-IMAGE: url(../images/jgbg.gif);
+	BACKGROUND-REPEAT: repeat-y
+}
+
+.mainbg {
+	BACKGROUND-POSITION: 50% top;
+	BACKGROUND-IMAGE: url(../images/tablebg.jpg);
+	VERTICAL-ALIGN: top;
+	BACKGROUND-REPEAT: repeat-x;
+	BACKGROUND-COLOR: #f1f1f3;
+	margin: 0px;
+	padding: 0px;
+}
+
+.botbg {
+	BACKGROUND-IMAGE: url(../images/botbg.gif);
+	BACKGROUND-REPEAT: repeat-x
+}
+
+.huibg {
+	COLOR: #868695;
+	BACKGROUND-COLOR: #f1f1f3;
+	TEXT-ALIGN: center
+}
+
+.heilj {
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	TEXT-DECORATION: underline
+}
+
+.yema {
+	FONT-SIZE: 14px;
+	COLOR: #000000;
+	LINE-HEIGHT: 40px;
+	TEXT-ALIGN: center
+}
+
+.tiao {
+	BACKGROUND-COLOR: #b1bec7
+}
+
+UNKNOWN {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%
+}
+
+TABLE.dataclass {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%
+}
+
+TD.title {
+	BORDER-TOP: white 1px solid;
+	FONT-SIZE: 12px;
+	BACKGROUND: #d6e7ef;
+	COLOR: #228b22;
+	LINE-HEIGHT: 150%;
+	BORDER-BOTTOM: black 1px solid;
+	FONT-FAMILY: Arial, ??, Sans-serif
+}
+
+P {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%;
+	FONT-FAMILY: Arial, ??, Sans-serif
+}
+
+INPUT {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Arial, ??, Sans-serif
+}
+
+SELECT {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%;
+	FONT-FAMILY: ??, Sans-serif
+}
+
+TEXTAREA {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%;
+	FONT-FAMILY: Arial, ??, Sans-serif
+}
+
+OPTION {
+	FONT-SIZE: 12px;
+	LINE-HEIGHT: 150%;
+	FONT-FAMILY: Arial, ??, Sans-serif
+}
+
+/**TABLE.TableList {
+	BORDER-RIGHT: #7e7e7e 1px solid; BORDER-TOP: #7e7e7e 1px solid; MARGIN-TOP: 5px; BACKGROUND-IMAGE: url(images/tablebg.jpg); BEHAVIOR: url(css/rowover_vbs.htc); BORDER-LEFT: #7e7e7e 1px solid; BORDER-BOTTOM: #7e7e7e 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; tb--Rec-Per-Page: 0; tr--class-Title: ListTitle; tr--class-Row1: ListRow1; tr--class-Row2: ListRow1_1; tr--class-Row3: ListRow2; tr--class-Row4: ListRow3; td--class-RowCell: ListCellRow; td--class-TitleCell: ListCellTitle; td--class-TailCell: ListTail; tr--class-RowHighLight: ListRowHighLight;
+	border-left: 1px #7e7e7e solid;
+	border-top: 1px #7e7e7e solid;
+	border-right: 1px #7e7e7e solid;
+}*/
+.TableList {
+	MARGIN-TOP: 5px;
+	BACKGROUND-IMAGE: url(images/tablebg.jpg);
+	BACKGROUND-COLOR : #ffffff ;
+	border-collapse: collapse;
+	border: 1px #7e7e7e solid;
+}
+
+.TableList thead td {
+	text-align: center;
+	border: 1px #7e7e7e solid;
+	height: 28px;
+	background-color: #7FB6CA
+}
+
+.TableList tbody td {
+	border: 1px #7e7e7e solid;
+	font-family: "����";
+}
+
+.TableList tfoot td{
+	border: 1px #7e7e7e solid;
+	background-color: #7FB6CA
+}
+
+.TableList tfoot td table td{
+	border: 0px;
+}
+
+TABLE.tablesimple {
+	BORDER-RIGHT: #868686 1px solid;
+	PADDING-RIGHT: 0px;
+	BORDER-TOP: #868686 1px solid;
+	MARGIN-TOP: 2px;
+	PADDING-LEFT: 0px;
+	MARGIN-BOTTOM: 2px;
+	PADDING-BOTTOM: 0px;
+	BORDER-LEFT: #868686 1px solid;
+	PADDING-TOP: 0px;
+	BORDER-BOTTOM: #868686 1px solid;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #ffffff;
+	spacing: 0 0 0 0
+}
+
+TD.TableSubject {
+	BORDER-RIGHT: #868686 0px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #868686 0px solid;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #868686 0px solid;
+	COLOR: black;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #868686 0px solid;
+	FONT-FAMILY: 'Arial,??,Sans-serif';
+	TEXT-ALIGN: center
+}
+
+TD.InputLabelCell {
+	BORDER-RIGHT: #868686 0px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #868686 0px solid;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #868686 0px solid;
+	COLOR: black;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #868686 0px solid;
+	FONT-FAMILY: 'Arial,??,Sans-serif';
+	TEXT-ALIGN: right;
+	vertical-align: top;
+}
+
+TD.InputAreaCell {
+	BORDER-RIGHT: #868686 0px solid;
+	BORDER-TOP: #868686 0px solid;
+	BORDER-LEFT: #868686 0px solid;
+	BORDER-BOTTOM: #868686 0px solid
+}
+
+TEXTAREA.textarea {
+	BORDER-RIGHT: #868686 1px solid;
+	BORDER-TOP: #868686 1px solid;
+	BORDER-LEFT: #868686 1px solid;
+	BORDER-BOTTOM: #868686 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+SELECT.select {
+	BORDER-RIGHT: #868686 1px solid;
+	BORDER-TOP: #868686 1px solid;
+	BORDER-LEFT: #868686 1px solid;
+	BORDER-BOTTOM: #868686 1px solid;
+	BACKGROUND-COLOR: #ffffff
+}
+
+INPUT.button {
+	BORDER-RIGHT: 1px solid;
+	PADDING-RIGHT: 0px;
+	BORDER-TOP: 1px solid;
+	PADDING-LEFT: 0px;
+	FONT-SIZE: 12px;
+	PADDING-BOTTOM: 2px;
+	BORDER-LEFT: 1px solid;
+	CURSOR: hand;
+	COLOR: #662929;
+	LINE-HEIGHT: 12px;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: 1px solid;
+	FONT-FAMILY: ??, Sans-serif;
+	HEIGHT: 20px;
+	BACKGROUND-COLOR: #ffffff
+}
+
+INPUT.text {
+	BORDER-RIGHT: #868686 1px solid;
+	BORDER-TOP: #868686 1px solid;
+	LEFT: 0px;
+	BORDER-LEFT: #868686 1px solid;
+	WIDTH: 70px;
+	BORDER-BOTTOM: #868686 1px solid;
+	TOP: 0px;
+	HEIGHT: 18px;
+	BACKGROUND-COLOR: #ffffff
+}
+
+INPUT.readonly {
+	BORDER-RIGHT: #868686 0px solid;
+	BORDER-TOP: #868686 0px solid;
+	LEFT: 0px;
+	BORDER-LEFT: #868686 0px solid;
+	COLOR: #000000;
+	BORDER-BOTTOM: #868686 1px solid;
+	TOP: 0px;
+	BACKGROUND-COLOR: transparent
+}
+
+TABLE.TableDropDown {
+	BORDER-RIGHT: #868686 1px solid;
+	BORDER-TOP: #868686 1px solid;
+	MARGIN-TOP: 5px;
+	BEHAVIOR: url(/css/rowover_vbs.htc);
+	BORDER-LEFT: #868686 1px solid;
+	BORDER-BOTTOM: #868686 1px solid;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #ffffff;
+	tb--Rec-Per-Page: 0;
+	tr--class-Title: ListRow2;
+	tr--class-Row1: ListRow1;
+	tr--class-Row2: ListRow1_1;
+	tr--class-Row3: ListRow2;
+	tr--class-Row4: ListRow3;
+	td--class-RowCell: ListCellRow;
+	td--class-TitleCell: ListCellRow;
+	td--class-TailCell: ListTail;
+	tr--class-RowHighLight: ListRowHighLight
+}
+
+TR.Listtitle {
+	BORDER-TOP: #7e7e7e 1px solid;
+	FONT-SIZE: 12px;
+	BACKGROUND: #7fb6ca;
+	COLOR: #000000;
+	BORDER-BOTTOM: #7e7e7e 1px solid;
+	FONT-FAMILY: Arial, ??, Sans-serif;
+	HEIGHT: 18px;
+	TEXT-ALIGN: center
+}
+
+TR.ListtitleBorder {
+	BORDER-RIGHT: #868686 1px solid;
+	BORDER-TOP: #868686 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #868686 1px solid;
+	COLOR: #ffffff;
+	BORDER-BOTTOM: #868686 1px solid;
+	FONT-FAMILY: Arial, ??, Sans-serif;
+	HEIGHT: 18px;
+	TEXT-ALIGN: center
+}
+
+TR.Listrow2 {
+	FONT-SIZE: 11px;
+	BACKGROUND: #ffffff;
+	FONT-FAMILY: Arial
+}
+
+TR.Listrow1 {
+	FONT-SIZE: 11px;
+	BACKGROUND: #ffffff;
+	FONT-FAMILY: Arial
+}
+
+TR.Listrow1_1 {
+	FONT-SIZE: 11px;
+	BACKGROUND: #e3eff3;
+	FONT-FAMILY: Arial
+}
+
+TR.Listrow3 {
+	FONT-SIZE: 11px;
+	BACKGROUND: #ffffff;
+	FONT-FAMILY: Arial
+}
+
+TR.ListRowHighLight {
+	FONT-SIZE: 11px;
+	COLOR: blue;
+	FONT-FAMILY: Arial;
+	BACKGROUND-COLOR: #f7e7d0
+}
+
+TD.ListCellTitle {
+	BORDER-RIGHT: #7e7e7e 1px solid;
+	PADDING-RIGHT: 2px;
+	BORDER-TOP: #7e7e7e 1px solid;
+	PADDING-LEFT: 2px;
+	PADDING-BOTTOM: 2px;
+	BORDER-LEFT: #7e7e7e 0px solid;
+	PADDING-TOP: 2px;
+	BORDER-BOTTOM: #7e7e7e 1px solid
+}
+
+TD.ListCellRow {
+	BORDER-RIGHT: #7e7e7e 1px solid;
+	PADDING-RIGHT: 4px;
+	BORDER-TOP: #7e7e7e 1px solid;
+	PADDING-LEFT: 4px;
+	PADDING-BOTTOM: 0px;
+	BORDER-LEFT: #7e7e7e 1px solid;
+	PADDING-TOP: 0px;
+	BORDER-BOTTOM: #7e7e7e 1px solid
+}
+
+TD.ListCellRow_1 {
+	BORDER-RIGHT: #7e7e7e 1px solid;
+	PADDING-RIGHT: 1px;
+	BORDER-TOP: #7e7e7e 1px solid;
+	PADDING-LEFT: 1px;
+	PADDING-BOTTOM: 0px;
+	BORDER-LEFT: #7e7e7e 1px solid;
+	PADDING-TOP: 0px;
+	BORDER-BOTTOM: #7e7e7e 1px solid
+}
+
+TD.listtail {
+	FONT-SIZE: 11px;
+	BACKGROUND: #7fb6ca;
+	BORDER-BOTTOM: #7e7e7e 1px solid
+}
+
+TABLE.TableList TD {
+	LINE-HEIGHT: 25px
+}
+
+TABLE.TableList TD A:link {
+	COLOR: #4646a3;
+	TEXT-DECORATION: none
+}
+
+TABLE.TableList TD A:visited {
+	COLOR: #4646a3;
+	TEXT-DECORATION: none
+}
+
+TABLE.TableList TD A:hover {
+	COLOR: #ff0000;
+	TEXT-DECORATION: underline
+}
+
+TABLE.InputFrameMain {
+	BORDER-RIGHT: #868686 1px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #868686 1px solid;
+	MARGIN-TOP: 15px;
+	PADDING-LEFT: 10px;
+	MARGIN-BOTTOM: 15px;
+	PADDING-BOTTOM: 10px;
+	BORDER-LEFT: #868686 1px solid;
+	PADDING-TOP: 10px;
+	BORDER-BOTTOM: #868686 1px solid;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #fafafa
+}
+
+TR.InputFrameLine {
+	FONT-SIZE: 12px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 2px;
+	FONT-FAMILY: 'Arial';
+	height: 25px;
+}
+
+TD.InputFrameButtonLine {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: 'Arial'
+}
+
+TD.TableSubject {
+	BORDER-RIGHT: #868686 0px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #868686 0px solid;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 14px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #868686 0px solid;
+	COLOR: black;
+	LINE-HEIGHT: 30px;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #868686 0px solid;
+	FONT-FAMILY: 'Arial,??,Sans-serif';
+	TEXT-ALIGN: center
+}
+
+/**TD.InputLabelCell {
+	BORDER-RIGHT: #868686 0px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #868686 0px solid;
+	PADDING-LEFT: 5px;
+	FONT-SIZE: 12px;
+	VERTICAL-ALIGN: top;
+	BORDER-LEFT: #868686 0px solid;
+	COLOR: black;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #868686 0px solid;
+	FONT-FAMILY: 'Arial,??,Sans-serif';
+	TEXT-ALIGN: right;
+}*/

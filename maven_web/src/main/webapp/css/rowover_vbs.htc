@@ -1,0 +1,599 @@
+<!-- ---------------------------------------------------------------------
+'
+'  Copyright 1998 Microsoft Corporation.  All Rights Reserved.
+'
+'  File:         rowover_vbs.htc
+'
+'  Description:  This behavior adds striping, hovering and other useful
+'                features to regular and data-bound table rows.
+'
+'-------------------------------------------------------------------- -->
+
+<PROPERTY NAME="selectable" />
+<PROPERTY NAME="striped"    />
+<PROPERTY NAME="highlightable"    />
+<PROPERTY NAME="addrow"    />
+
+<METHOD   NAME="Format"     />
+<METHOD   NAME="reset"      />
+
+<EVENT    NAME="onrowover"   ID="rowover"  />
+<EVENT    NAME="onrowout"    ID="rowout"   />
+<EVENT    NAME="onrowclick"  ID="rowclick" />
+<EVENT    NAME="onerror"     ID="error"    />
+
+<ATTACH   EVENT="onreadystatechange" onevent="DoInit()"     />
+<ATTACH   EVENT="onmouseout"         onevent="LeaveTable()" />
+
+<SCRIPT LANGUAGE="VBScript">
+
+'+----------------------------------------------------------------------------
+'
+'  Global variables
+'
+'-----------------------------------------------------------------------------
+
+dim oCurrRow               'Tracks current mouseover row
+
+dim oSelectRow              'Tracks currently selected row
+
+dim sSelectBack             'Tracks previous backgroundColor of selected row
+
+dim sSelectClr              'Tracks previous color of selected row
+
+dim sDefaultBack            'Tracks previous backgroundColor of mouseover row
+
+dim sDefaultClr             'Tracks previous color of mouseover row
+
+dim sDefaultClass				'保存前一个ClassName
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       DoInit
+'
+'  Description:    Calls functions to initialize behavior
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub DoInit()
+    Set oSelectRow = nothing
+    Set oCurrRow = nothing
+   ' msgbox "set default begin"
+    SetDefaults()
+    'msgbox "format begin"
+    Format()
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       SetDefaults
+'
+'  Description:    Called during the initialization of the behavior.  Sets
+'                  the defaults for custom CSS properties (calls the
+'                  AccountomDefault() function), regular CSS properties (the
+'                  NormalDefault() function), and attribute/properties.
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub SetDefaults()
+
+    '  Accountom CSS Property Defaults
+	AccountomDefault "ro--hover-background",   "roHoverBackground",    "navy"
+	AccountomDefault "ro--hover-color",        "roHoverColor",         "white"
+	AccountomDefault "ro--selected-background","roSelectedBackground", "navy"
+	AccountomDefault "ro--selected-color",     "roSelectedColor",      "white"
+	AccountomDefault "ro--shade-background",   "roShadeBackground",    "#dddddd"
+	AccountomDefault "ro--light-background",   "roLightBackground",    "white"
+	AccountomDefault "tb--Rec-Per-Page",   "tbRecPerPage",    "15"
+	AccountomDefault "tr--class-Title",   "trClassTitle",    ""
+	AccountomDefault "tr--class-Row1",   "trClassRow1",    ""
+	AccountomDefault "tr--class-Row2",   "trClassRow2",    ""
+	AccountomDefault "tr--class-RowHighLight",   "trClassRowHighLight",    ""
+	AccountomDefault "tr--class-Row3",   "trClassRow3",    ""
+	AccountomDefault "tr--class-Row4",   "trClassRow4",    ""
+	AccountomDefault "td--class-TailCell",   "tdClassTailCell",    ""
+	AccountomDefault "td--class-RowCell",   "tdClassRowCell",    ""
+	AccountomDefault "td--class-TitleCell",   "tdClassTitleCell",    ""
+    '  CSS Property Defaults
+    NormalDefault "cursor",  "auto",  "default"
+    '  Attribute | Property Defaults
+    if (IsNull(selectable)) then    selectable  = false
+    if (IsNull(striped)) then    striped     = false
+    if not (IsNull(element.highlightable)) then
+    	highlightable=element.highlightable
+    else
+    	highlightable= "yes"
+    end if
+		if not (IsNull(element.addrow)) then
+    	addrow=element.addrow
+    else
+    	addrow= "yes"
+    end if
+
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       AccountomDefault
+'
+'  Description:    Sets the defaults for custom CSS properties and establishes
+'                  a scriptable name for the property
+'
+'  Arguments:      sCSSName - the CSS name of the property
+'                  sScriptName - the desired Scriptable name of the property
+'                  sDefault - the desired default value
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub AccountomDefault(sCSSName, sScriptName, sDefault)
+    on error resume next
+    'err.clear
+    cStyleExists = currentStyle.getAttribute(sCSSName)
+    if IsNull(cStyleExists) <> 0 then
+		cStyleExists = false
+    else
+		cStyleExists = true
+	end if
+	'on error goto 0
+
+    if  NOT(cStyleExists) then
+        Call style.setAttribute(sCSSName, sDefault)
+    else
+		Call style.setAttribute(sCSSName, currentStyle.getAttribute(sCSSName))
+    end if
+    Call style.setAttribute(sScriptName, style.getAttribute(sCSSName))
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       NormalDefault
+'
+'  Description:    Sets the defaults for CSS properties by checking the
+'                  currentStyle and style of the object against the IE
+'                  default.
+'
+'  Arguments:      sCSSName - the CSS name of the property
+'                  sIEDefault - the IE standard default of the property
+'                  sDefault - the desired default of the property
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub NormalDefault(sCSSName, sIEDefault, sDefault)
+    on error resume next
+    err.clear
+    cStyleExists = style.getAttribute("sCSSName")
+    if err.number <> 0 then
+		cStyleExists = false
+    else
+		cStyleExists = true
+	end if
+	on error goto 0
+
+    if (currentStyle.getAttribute("sCSSName") = sIEDefault _
+        AND (style.getAttribute("sCSSName") = "" OR NOT(cStyleExists))) then
+        Call style.setAttribute("sCSSName", sDefault)
+    end if
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       Format
+'
+'  Description:    Calls the Stripes() function to format as necessary and
+'                  attaches approprate events.  These events are not attached
+'                  in the <EVENT> section so that they do not fire during
+'                  the initialization process.  If the table is not yet ready,
+'                  this function loops until it is.
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub Format()
+    '  If the table's readyState is not complete, wait
+	'msgbox window.document.readyState
+	if (window.document.readyState <> "complete") then
+		'alert readystate
+    Call window.setTimeout(uniqueID + ".Format()", 20)
+    '  If the table's readyState is complete, attachEvents and apply formatting
+    else
+    		'msgbox "begin stripes"
+        Stripes(eval(striped))
+        attachEvent "onmouseover",      getRef("DoMouseOver")
+        attachEvent "onmouseout",       getRef("DoMouseOut")
+        'attachEvent "onclick",          getRef("DoClick")
+        attachEvent "onpropertychange", getRef("DoPropChange")
+    end if
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       DoPropChange
+'
+'  Description:    Handles property changes on CSS and regular property/
+'                  attributes.
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub DoPropChange()
+    propertyName = window.event.propertyName
+    detachEvent "onpropertychange", getRef("DoPropChange")
+    Stripes(eval(striped))
+    attachEvent "onpropertychange", getRef("DoPropChange")
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       reset
+'
+'  Description:    Resets the current row and selected row to null (including
+'                  returning the backgroundColor and color of the selected
+'                  row to their original color.
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub reset()
+
+    Set oCurrRow = nothing
+
+    '  If there is a row currently selected, unselect it.
+	' !!! Possible test for nonexistence.. but I don't think so.
+    rowExists = Not oSelectRow Is Nothing
+
+	if rowExists then
+		if (oSelectRow Is Nothing) then
+			Call ColorCells(oSelectRow, sSelectClr, sSelectBack)
+		Set oSelectRow = Nothing
+		end if
+	else
+		Set oSelectRow = Nothing
+	end if
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       Stripes
+'
+'  Description:    Formats the background color of the table rows according
+'                  to the Striped property and applicable CSS properties.
+'
+'  Arguments:      bColor - if true, add color; if false, remove color
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub Stripes(bColor)
+    '
+    '  Iterate through the rows of the table, alternately applying the shade
+    '  and light colors
+    '
+    Dim j,i,k
+    dim orow,ocell
+    dim llines
+    dim smyclasstype
+    'msgbox "stripes begin"
+    lines=0
+    for j = 1 to tbodies(0).rows.length - 1
+			smyclasstype=""
+			on error resume next
+			smyclasstype=rows(j).myclasstype
+			on error goto 0
+			'msgbox smyclasstype
+			if smyclasstype="" then
+				lines=lines+1
+			end if
+    next
+    'msgbox lines
+    'msgbox style.tbRecPerPage
+    if ucase(addrow)<>"NO" then
+	    for i=lines+1 to style.tbRecPerPage
+	    	set orow=tbodies(tbodies.length-1).Insertrow()
+	    	for j = 0 to rows(0).cells.length - 1
+					set ocell=orow.insertcell
+					ocell.innertext=" "
+				next
+	    next
+		end if
+    k=0
+    for j = 0 to rows.length - 1
+      if Not (rows(j) Is oSelectRow AND eval(selectable)) then
+			if not (LCase(rows(j).parentElement.tagName) <> "tbody")then
+				smyclasstype=""
+				on error resume next
+				smyclasstype=rows(j).myclasstype
+				on error goto 0
+				'msgbox rows(j).cells(0).innertext
+				'rows(j).cells(0).innertext=smyclasstype
+				'rows(j).cells(1).innertext=smyclasstype
+				if smyclasstype="" then
+					if K mod 2 then
+						rows(j).classname=style.trClassRow1
+					else
+						rows(j).classname=style.trClassRow2
+					end if
+					k=k+1
+				elseif rows(j).myclasstype="T3" then
+					rows(j).classname=style.trClassRow3
+				elseif rows(j).myclasstype="T4" then
+					rows(j).classname=style.trClassRow4
+				end if
+				for i = 0 to rows(j).cells.length - 1
+					rows(j).cells(i).className=style.tdClassRowCell
+				next
+			elseif LCase(rows(j).parentElement.tagName) = "thead" then
+				rows(j).classname=style.trClassTitle
+				for i = 0 to rows(j).cells.length - 1
+					rows(j).cells(i).className=style.tdClassTitleCell
+				next
+			elseif LCase(rows(j).parentElement.tagName) = "tfoot" then
+				rows(j).classname=""
+				for i = 0 to rows(j).cells.length - 1
+					rows(j).cells(i).className=style.tdClassTailCell
+				next
+			end if
+			'rows(j).cells(0).innertext=rows(j).classname
+		end if
+    next
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       LeaveTable
+'
+'  Description:    Attached to the mouseover event for the table.  If the user
+'                  leaves the table, the current mouseover row is set to null,
+'                  so that when they return, that row can be highlighted.
+'
+'  Arguments:      none
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+function LeaveTable()
+    if (window.event.toElement Is element.parentElement) then Set oCurrRow = Nothing
+end function
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       GetRow
+'
+'  Description:    This function takes the element passed to it and determines
+'                  if it is a row or the child of a row in the TBODY section
+'                  of the table.
+'
+'  Arguments:      oElem - element to check
+'
+'  Returns:        false if the element is not a row or child element in the
+'                      TBODY section of the table
+'                  true if the element is a row or child element in the TBODY
+'                      section of the table
+'
+'-----------------------------------------------------------------------------
+function GetRow(oElem)
+	while (Not oElem.parentElement is nothing)
+		if (LCase(oElem.tagName) = "tr" _
+		    AND LCase(oElem.parentElement.tagName) = "tbody") then
+
+		    dim smyclasstype
+				smyclasstype=""
+				on error resume next
+				smyclasstype=oElem.myclasstype
+				on error goto 0
+				if smyclasstype="" then
+				'dim obj
+				'set obj=oelem
+				'set obj=GetTable(obj)
+				'if obj is element then
+					Set GetRow = oElem
+					Exit Function
+				end if
+		end if
+
+		if (LCase(oElem.tagName) = "table") then
+			Set GetRow = Nothing
+			Exit Function
+		End If
+
+		Set oElem = oElem.parentElement
+	wend
+end function
+
+function GetTable(oElem)
+	while (Not oElem.parentElement is nothing)
+		if (LCase(oElem.tagName) = "table") then
+			Set Gettable = oElem
+			Exit Function
+		End If
+		Set oElem = oElem.parentElement
+	wend
+end function
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       ColorCells
+'
+'  Description:    Applies a backgroundColor and color to the row.
+'
+'  Arguments:      oRow - row to apply the styles to
+'                  sClor - color to apply to row
+'                  sBack - backgroundColor to apply to row
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub ColorCells(oRow, sClr, sBack)
+
+    if (Not IsNull(sClr)) then oRow.style.color = sClr
+	if (Not IsNull(sBack)) then oRow.style.backgroundColor = sBack
+
+    '
+    '  Iterate through the cells of the sourceRow and apply the color and
+    '  background color
+    '
+	for i = 0 to oRow.cells.length - 1
+		if (Not IsNull(sClr)) then oRow.cells(i).style.color = sClr
+
+		if (Not IsNull(sBack)) then oRow.cells(i).style.backgroundColor = sBack
+	next
+end sub
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       DoMouseOver
+'
+'  Description:    Handle the mouseover event for the row.  First, find the
+'                  row of the srcElement, then make sure it's not the
+'                  current mouseover row.  Next, "bookmark" the backgroundColor
+'                  and color of the cells of the row so they can be returned
+'                  later.  Call the ColorCells() function to apply the
+'                  appropriate styles, then fire the onrowover event.
+'
+'  Arguments:      none
+'
+'  Returns:        true if this is the current mouseover row
+'                  true if this is not a row or child of a row in the TBODY
+'                      section of the table.
+'                  nothing if the mouseover is applied
+'
+'-----------------------------------------------------------------------------
+
+function DoMouseOver()
+    '
+    '  Find the row of the srcElement and make sure it's not the row that's
+    '  currently highlighted
+    '
+    	on error resume next
+	Set oRow = GetRow(window.event.srcElement)
+	if oRow Is Nothing then
+		DoMouseOver = true
+		Exit Function
+	End If
+	if (oRow Is oCurrRow) then
+		DoMouseOver = true
+		exit function
+	end if
+  Set oCurrRow = oRow
+  '  Set the variables to record the current background and color of the row
+	'sDefaultBack = oRow.currentStyle.backgroundColor
+	'sDefaultClr = oRow.currentStyle.color
+	sDefaultClass=oRow.classname
+	'  Apply the formatting to the row
+	'ColorCells oRow, style.roHoverColor, style.roHoverBackground
+	if ucase(highlightable)="YES" then
+		if orow.classname<>"" then
+			orow.classname=style.trClassRowHighLight
+		end if
+	end if
+
+  '  Fire the rowover event with the srcRow property
+  Set oEvent = createEventObject()
+  oEvent.setAttribute "srcRow", oRow
+	rowover.fire oEvent
+end function
+
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       DoMouseOut
+'
+'  Description:    Undoes what the DoMouseOver() function did.  Get the row,
+'                  return the styles to the ones "bookmarked" in the mouseover
+'                  function, and fire the event.
+'
+'  Arguments:      none
+'
+'  Returns:        true if this is the current mouseover row
+'                  true if this is not a row or child of a row in the TBODY
+'                      section of the table.
+'                  nothing if the mouseover is applied
+'
+'-----------------------------------------------------------------------------
+
+function DoMouseOut()
+    '
+    '  Find the row of the srcElement and make sure it's not the row that's
+    '  currently highlighted
+    '
+    'msgbox window.event.toElement.classname
+	if Not oCurrRow Is Nothing then
+		if oCurrRow.contains(window.event.toElement) then
+			DoMouseOut = true
+			exit function
+		End If
+	end if
+	Set oRow = GetRow(window.event.srcElement)
+	if oRow Is Nothing then
+		DoMouseOut = true
+		exit function
+	end if
+
+	'  If this row is selected, leave the selected formatting on leaving
+	'	if (oRow Is oSelectRow AND eval(selectable)) then
+	'    Call ColorCells(oRow, style.roSelectedColor, style.roSelectedBackground)
+	'  Else, reapply the previous styles of this row
+	'	else
+	'    Call ColorCells(oRow, sDefaultClr, sDefaultBack)
+  '  end if
+	if sDefaultClass<>"" then
+		orow.classname=sDefaultClass
+	end if
+    '  Fire the rowout event with the srcRow property
+  Set oEvent = createEventObject
+  oEvent.setAttribute "srcRow", oRow
+	rowout.fire oEvent
+end function
+
+'+----------------------------------------------------------------------------
+'
+'  Function:       ReturnError
+'
+'  Description:    Fires the error event, along with a descriptive text
+'                  message.
+'
+'  Arguments:      sMsg - descriptive text message
+'
+'  Returns:        nothing
+'
+'-----------------------------------------------------------------------------
+
+sub ReturnError(sMsg)
+    oEvent = createEventObject()
+    oEvent.setAttribute "error", sMsg
+    error.fire oEvent
+end sub
+</SCRIPT>
